@@ -25,6 +25,9 @@ with open("src/config.yaml", 'r') as stream:
 
 app = Flask(__name__) # instance de Flask, (si name == main -> app run)
 
+
 def charge_model(path='.', model_name="model.pkl"):
+    """
+    """
     learn = load_learner(path, fname=model_name)
     return learn
