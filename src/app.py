@@ -20,3 +20,6 @@ with open("src/config.yaml", 'r') as stream:
         APP_CONFIG = yaml.full_load(stream)
     except yaml.YAMLError as exc:
         print(exc)
+
+
+app = Flask(__name__) # instance de Flask, (si name == main alors app run)
