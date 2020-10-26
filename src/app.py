@@ -16,15 +16,6 @@ from typing import List, Dict, Union, ByteString, Any # Syntaxe pour Typer ses v
 import sys  # module system
 
 
-"""
-# need pip install pyyaml
-with open("src/config.yaml", 'r') as stream:
-    try:
-        APP_CONFIG = yaml.full_load(stream)
-    except yaml.YAMLError as exc:
-        print(exc)
-"""
-
 
 app = Flask(__name__) # instance de Flask, (si name == main -> app run)
 
@@ -36,13 +27,13 @@ app = Flask(__name__) # instance de Flask, (si name == main -> app run)
 def charge_model(path='.', model_name="model.pkl"):
     """ Charge le model entrainé, model.pkl
     Args:
-        path (str):
-        model_name (str):
+        path (str): chemin vers le fichier du model
+        model_name (str): nom du fichier contenant le modele
     Return:
         model: retourne le modèle entrainé prêt à être utilisé
     """
-
     model = load_learner(path, fname=model_name)
+    
     return model
 
 
@@ -57,7 +48,6 @@ def charge_img_url(url):
     https://www.kite.com/python/answers/how-to-read-an-image-data-from-a-url-in-python
     https://pillow.readthedocs.io/en/3.0.x/releasenotes/2.8.0.html
     """
-
     response = requests.get(url)
     image = open_image(BytesIO(response.content)) 
 
@@ -71,7 +61,6 @@ def charge_img_brute(raw):
     Return:
         image : une image utilisable
     """
-
     image = open_image(BytesIO(raw))
     
     return image 
@@ -86,8 +75,7 @@ def prediction(image, n = 3):
         class_predicton (str): Classe prédite pour l'img
         predictions (lst): liste des probabilités des prédictions de classes pour une img
     """
-
-    class_prediction, predict_idx, outputs = model.predict(image) # model.predict, renvoie un Tuple de 3 élem: 
+    class_prediction, _, outputs = model.predict(image) # model.predict, renvoie un Tuple de 3 élem: 
                                                                     # 1 la pred passé par l'activation et la fct de perte
                                                                     # 2 la pred décodé
                                                                     # 3 la pred décodé en ulisant les transform appliqué au DataLoaders
@@ -133,21 +121,28 @@ def charge_fichier():
 
 @app.route('/api/class_pred', methods=['GET'])
 def classes():
-""" Récupère avec GET le nom des classes prédites
-Return:
-    classes prédites str dans un fichier JSON
-"""
+    """ Récupère avec GET le nom des classes prédites
+    Return:
+        classes prédites str dans un fichier JSON
+    """
     class_predite = sorted(model.data.classes)
+    
     return flask.jsonify(class_predite)
 
 
 @app.route('/Bon', methods=['GET'])
 def test():
-    """Test la connection à l'api
+    """
+    Test la connection à l'api
     """
     return "jour!"
 
 
-@app.route('/config')
-def configuration():
-    return flask.jsonify(APP_CONFIG)
+
+
+
+
+
+
+
+model = charge_model("models") # args -> path vers le modele
