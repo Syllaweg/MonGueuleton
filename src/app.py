@@ -113,6 +113,10 @@ def prediction(image, n = 3):
 
 @app.route('/api/classifieur', methods=['POST', 'GET'])
 def charge_fichier():
+    """ Recupere une image depuis un URL ou un fichier et la passe dans le modele 
+    Return:
+        ret (json): la prediction dans un fichier JSON
+    """
     # va chercher une image via une URL avec une requete GET
     if flask.request.method == 'GET':
         url = flask.request.args.get("url")
@@ -125,3 +129,20 @@ def charge_fichier():
     ret= prediction(image) # Fait la prediction sur l'img
 
     return flask.jsonify(ret)
+
+
+@app.route('/api/class_pred', methods=['GET'])
+def classes():
+""" Récupère avec GET le nom des classes prédites
+Return:
+    classes prédites str dans un fichier JSON
+"""
+    class_predite = sorted(model.data.classes)
+    return flask.jsonify(class_predite)
+
+
+@app.route('/Bon', methods=['GET'])
+def test():
+    """Test la connection à l'api
+    """
+    return "jour!"
