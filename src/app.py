@@ -146,3 +146,8 @@ def test():
     """Test la connection à l'api
     """
     return "jour!"
+
+
+@app.route('/config')
+def configuration():
+    return flask.jsonify(APP_CONFIG)
