@@ -8,7 +8,9 @@ import requests
 import yaml
 import json
 
-from io import BytesIO  # Stock data sous forme d'octets, comme les variables
+
+from io import BytesIO  # Permet de lire des données Brutes(nos images)
+# plus généralement de gérer différent type de données I/O -> https://docs.python.org/3/library/io.html
 from typing import List, Dict, Union, ByteString, Any # Syntaxe pour Typer ses varb
 import sys  # module system
 
@@ -36,7 +38,7 @@ def charge_model(path='.', model_name="model.pkl"):
 
 
 def charge_img_url(url):
-    """ charge et décompresse(BytesIO) une image depuis un lien URL avec une requete GET
+    """ charge et décompresse(BytesIO) une image brute depuis un lien URL avec une requete GET
     Args: 
         url (str): lien url vers une image 
     Return: 
@@ -53,7 +55,7 @@ def charge_img_url(url):
     return image 
 
 
-def charge_img_byte(byte):
+def charge_img_brute(raw):
     """ Charge et ouvre des images depuis des données brute en bits
     Args: 
         byte : image brute en bits
@@ -61,7 +63,35 @@ def charge_img_byte(byte):
         image : une image utilisable
     """
 
-    image = open_image(BytesIO(byte))
+    image = open_image(BytesIO(raw))
     
     return image 
+
+
+def prediction(image, n = 3):
+    """
+    Args:
+        image : une image 
+        n (int): 
+    Return:
+        class_predicton:
+        predictions:
+    """
+
+    class_prediction, predict_idx, outputs = model.predict(image)
+    
+    predict_proba = outputs / sum(outputs)
+    predict_proba = predict_proba.tolist()
+
+    predictions = []
+
+    for img_class, retour, proba in zip(model.data.classes, outputs.tolist(), predict_proba):
+        output = round(output, 1 )
+        proba = round(proba, 2)
+        predictions.append({"Classe": img_class.replace("_"," "), "Sortie": retour, "probalité": proba})
+
+    predictions = sorted(predictions, key=lambda x: x["output"], reverse=True)
+    predictions = predictions[0 : n]
+
+    return {"Classe": str(class_prediction), "Predictions": predictions}
 
