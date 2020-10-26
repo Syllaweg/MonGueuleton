@@ -3,6 +3,7 @@ from fastai.vision import *
 import torch
 
 from flask import Flask
+import flask
 import requests
 
 import yaml
@@ -28,9 +29,17 @@ with open("src/config.yaml", 'r') as stream:
 app = Flask(__name__) # instance de Flask, (si name == main -> app run)
 
 
+# ---------------------------------------------------------------------------- #
+#                                   Fonctions                                  #
+# ---------------------------------------------------------------------------- #
+
 def charge_model(path='.', model_name="model.pkl"):
     """ Charge le model entrainé, model.pkl
-
+    Args:
+        path (str):
+        model_name (str):
+    Return:
+        model: retourne le modèle entrainé prêt à être utilisé
     """
 
     model = load_learner(path, fname=model_name)
@@ -97,3 +106,22 @@ def prediction(image, n = 3):
 
     return {"Classe": str(class_prediction), "Predictions": predictions}
 
+
+# ---------------------------------------------------------------------------- #
+#                                     Flask                                    #
+# ---------------------------------------------------------------------------- #
+
+@app.route('/api/classifieur', methods=['POST', 'GET'])
+def charge_fichier():
+    # va chercher une image via une URL avec une requete GET
+    if flask.request.method == 'GET':
+        url = flask.request.args.get("url")
+        image = charge_img_url(url) # utlise notre fct pour requeter et charger l'image
+    else: 
+    # Si l'img est fourni directement comme un fichier (pas via un URL)
+        bytes = flask.request.files["file"].read()
+        image = charge_img_brute(bytes)
+    
+    ret= prediction(image) # Fait la prediction sur l'img
+
+    return flask.jsonify(ret)
