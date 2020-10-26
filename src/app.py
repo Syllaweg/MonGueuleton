@@ -42,8 +42,7 @@ def charge_img_url(url):
     Return: 
         image : une image 
 
-
-    utlisation de BytesIO, avec un get pour ouvrir une image:
+    - utlisation de BytesIO, avec un get pour ouvrir une image:
     https://www.kite.com/python/answers/how-to-read-an-image-data-from-a-url-in-python
     https://pillow.readthedocs.io/en/3.0.x/releasenotes/2.8.0.html
     """
@@ -52,3 +51,17 @@ def charge_img_url(url):
     image = open_image(BytesIO(response.content)) 
 
     return image 
+
+
+def charge_img_byte(byte):
+    """ Charge et ouvre des images depuis des données brute en bits
+    Args: 
+        byte : image brute en bits
+    Return:
+        image : une image utilisable
+    """
+
+    image = open_image(BytesIO(byte))
+    
+    return image 
+
