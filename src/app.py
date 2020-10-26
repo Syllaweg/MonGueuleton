@@ -33,3 +33,22 @@ def charge_model(path='.', model_name="model.pkl"):
 
     model = load_learner(path, fname=model_name)
     return model
+
+
+def charge_img_url(url):
+    """ charge et décompresse(BytesIO) une image depuis un lien URL avec une requete GET
+    Args: 
+        url (str): lien url vers une image 
+    Return: 
+        image : une image 
+
+
+    utlisation de BytesIO, avec un get pour ouvrir une image:
+    https://www.kite.com/python/answers/how-to-read-an-image-data-from-a-url-in-python
+    https://pillow.readthedocs.io/en/3.0.x/releasenotes/2.8.0.html
+    """
+
+    response = requests.get(url)
+    image = open_image(BytesIO(response.content)) 
+
+    return image 
