@@ -71,11 +71,11 @@ def charge_img_brute(raw):
 def prediction(image, n = 3):
     """
     Args:
-        image : une image 
-        n (int): 
+        image : image à traiter
+        n (int): nombre de prediction voulue
     Return:
-        class_predicton:
-        predictions:
+        class_predicton (str):
+        predictions (lst):
     """
 
     class_prediction, predict_idx, outputs = model.predict(image)
