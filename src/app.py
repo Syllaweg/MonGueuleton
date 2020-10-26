@@ -69,17 +69,19 @@ def charge_img_brute(raw):
 
 
 def prediction(image, n = 3):
-    """
+    """ Analyse une image avec le modèle entrainé, et en ressort une prédiction de classe
     Args:
         image : image à traiter
-        n (int): nombre de prediction voulue
+        n (int): nombre de prédiction à afficher, ici les 3 premières
     Return:
-        class_predicton (str):
-        predictions (lst):
+        class_predicton (str): Classe prédite pour l'img
+        predictions (lst): liste des probabilités des prédictions de classes pour une img
     """
 
-    class_prediction, predict_idx, outputs = model.predict(image)
-    
+    class_prediction, predict_idx, outputs = model.predict(image) # model.predict, renvoie un Tuple de 3 élem: 
+                                                                    # 1 la pred passé par l'activation et la fct de perte
+                                                                    # 2 la pred décodé
+                                                                    # 3 la pred décodé en ulisant les transform appliqué au DataLoaders
     predict_proba = outputs / sum(outputs)
     predict_proba = predict_proba.tolist()
 
@@ -91,7 +93,7 @@ def prediction(image, n = 3):
         predictions.append({"Classe": img_class.replace("_"," "), "Sortie": retour, "probalité": proba})
 
     predictions = sorted(predictions, key=lambda x: x["output"], reverse=True)
-    predictions = predictions[0 : n]
+    predictions = predictions[0 : n] # affichera les n premiers resultats (3 ici)
 
     return {"Classe": str(class_prediction), "Predictions": predictions}
 
