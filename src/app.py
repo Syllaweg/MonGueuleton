@@ -143,7 +143,8 @@ if app.config["DEBUG"]:
     @app.after_request
     def header_after_request(reponse):
         """
-
+        https://www.codeflow.site/fr/article/spring-security-cache-control-headers
+        https://perso.liris.cnrs.fr/pierre-antoine.champin/2019/progweb-python/cours/cm4.html
         """
         reponse.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, public, max-age=0"
         reponse.headers["Expire"] = 0
