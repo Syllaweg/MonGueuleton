@@ -138,18 +138,19 @@ def test():
     return "jour!"
 
 
-@app.after_request
-def add_header(reponse):
-    reponse.headers["Cache-Control"] = "no-cache, no-store"
-
-
+# probleme reponse cache
 if app.config["DEBUG"]:
     @app.after_request
-    def after_request(response):
-        response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, public, max-age=0"
-        response.headers["Expires"] = 0
-        response.headers["Pragma"] = "no-cache"
-        return response
+    def header_after_request(reponse):
+        """
+
+        """
+        reponse.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, public, max-age=0"
+        reponse.headers["Expire"] = 0
+        reponse.headers["Pragma"]= "no-cache"
+        reponse.cache_control.max_age = 0
+
+        return reponse
 
 
 
