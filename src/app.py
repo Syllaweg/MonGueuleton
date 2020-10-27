@@ -119,7 +119,7 @@ def charge_fichier():
     return flask.jsonify(ret)
 
 
-@app.route('/api/class_pred', methods=['GET'])
+@app.route('/api/prediction', methods=['GET'])
 def classes():
     """ Récupère avec GET le nom des classes prédites
     Return:
@@ -137,6 +137,19 @@ def test():
     """
     return "jour!"
 
+
+@app.after_request
+def add_header(reponse):
+    reponse.headers["Cache-Control"] = "no-cache, no-store"
+
+
+if app.config["DEBUG"]:
+    @app.after_request
+    def after_request(response):
+        response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, public, max-age=0"
+        response.headers["Expires"] = 0
+        response.headers["Pragma"] = "no-cache"
+        return response
 
 
 
