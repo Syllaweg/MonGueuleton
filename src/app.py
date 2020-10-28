@@ -138,16 +138,19 @@ def test():
     return "jour!"
 
 
-# probleme reponse cache
+# Gestion des mises en Cache
 if app.config["DEBUG"]:
     @app.after_request
-    def header_after_request(reponse):
-        """
+    def http_header(reponse):
+        """ Modification des en-tetes de reponse HTTP, pour éviter les reponse de Cache
+
+        https://developer.mozilla.org/fr/docs/Web/HTTP/Headers
         https://www.codeflow.site/fr/article/spring-security-cache-control-headers
         https://perso.liris.cnrs.fr/pierre-antoine.champin/2019/progweb-python/cours/cm4.html
+        https://medium.com/@maskaravivek/how-to-add-http-cache-control-headers-in-flask-34659ba1efc0
         """
         reponse.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, public, max-age=0"
-        reponse.headers["Expire"] = 0
+        reponse.headers["Expires"] = 0
         reponse.headers["Pragma"]= "no-cache"
         reponse.cache_control.max_age = 0
 
