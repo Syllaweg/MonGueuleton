@@ -169,10 +169,11 @@ def root():
     return app.send_static_file('index.html')
 
 
-
-
-
+def before_requets():
+    app.jinja_env.cache = {}
 
 
 
 model = charge_model("models") # args -> path vers le modele
+
+
