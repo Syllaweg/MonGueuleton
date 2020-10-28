@@ -177,3 +177,10 @@ def before_requets():
 model = charge_model("models") # args -> path vers le modele
 
 
+if __name__ == "__main__":
+    port = os.environ.get('PORT', 5000)
+
+    if 'prepare' not in sys.argv:
+        app.jinja_env.auto_reload = True
+        app.config["TEMPLATES_AUTO_RELOAD"] = True
+        app.run(debug=False, host="0.0.0.0", port=port)
