@@ -157,6 +157,14 @@ if app.config["DEBUG"]:
         return reponse
 
 
+@app.route('/<path:path>')
+def static_file(chemin):
+    if '.js' in chemin or '.css' in chemin:
+        return app.send_static_file(chemin)
+    else:
+        return app.send_static_file("index.html")
+
+
 
 
 
