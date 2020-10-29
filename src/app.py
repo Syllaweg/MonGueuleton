@@ -2,8 +2,8 @@ import fastai
 from fastai.vision import *
 import torch
 
-from flask import Flask
 import flask
+from flask import Flask
 import requests
 
 import yaml
@@ -12,7 +12,6 @@ import json
 
 from io import BytesIO  # Permet de lire des données Brutes(nos images)
 # plus généralement de gérer différent type de données I/O -> https://docs.python.org/3/library/io.html
-from typing import List, Dict, Union, ByteString, Any # Syntaxe pour Typer ses varb
 import sys  # module system
 
 
@@ -24,7 +23,7 @@ app = Flask(__name__) # instance de Flask, (si name == main -> app run)
 #                                   Fonctions                                  #
 # ---------------------------------------------------------------------------- #
 
-def charge_model(path='.', model_name="model.pkl"):
+def charge_model(path='../models', model_name="model.pkl"):
     """ Charge le model entrainé, model.pkl
     Args:
         path (str): chemin vers le fichier du model
@@ -139,22 +138,22 @@ def test():
 
 
 # Gestion des mises en Cache
-if app.config["DEBUG"]:
-    @app.after_request
-    def http_header(reponse):
-        """ Modification des en-tetes de reponse HTTP, pour éviter les reponse stocké en Cache
+#if app.config["DEBUG"]:
+@app.after_request
+def http_header(reponse):
+    """ Modification des en-tetes de reponse HTTP, pour éviter les reponse stocké en Cache
 
-        https://developer.mozilla.org/fr/docs/Web/HTTP/Headers
-        https://www.codeflow.site/fr/article/spring-security-cache-control-headers
-        https://perso.liris.cnrs.fr/pierre-antoine.champin/2019/progweb-python/cours/cm4.html
-        https://medium.com/@maskaravivek/how-to-add-http-cache-control-headers-in-flask-34659ba1efc0
-        """
-        reponse.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, public, max-age=0" # spécifie des directives pour les mécanismes de mise en cache dans les requêtes et les réponses.
-        reponse.headers["Expires"] = 0 # La date et l'heure après lesquelles la réponse est considérée périmé
-        reponse.headers["Pragma"]= "no-cache" # rétrocompatibilité avec les caches HTTP/1.0 où l'en-tête Cache-Control n'est pas présent.
-        reponse.cache_control.max_age = 0 # La durée en secondes passée par l'objet dans un cache proxy.
+    https://developer.mozilla.org/fr/docs/Web/HTTP/Headers
+    https://www.codeflow.site/fr/article/spring-security-cache-control-headers
+    https://perso.liris.cnrs.fr/pierre-antoine.champin/2019/progweb-python/cours/cm4.html
+    https://medium.com/@maskaravivek/how-to-add-http-cache-control-headers-in-flask-34659ba1efc0
+    """
+    reponse.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, public, max-age=0" # spécifie des directives pour les mécanismes de mise en cache dans les requêtes et les réponses.
+    reponse.headers["Expires"] = 0 # La date et l'heure après lesquelles la réponse est considérée périmé
+    reponse.headers["Pragma"]= "no-cache" # rétrocompatibilité avec les caches HTTP/1.0 où l'en-tête Cache-Control n'est pas présent.
+    reponse.cache_control.max_age = 0 # La durée en secondes passée par l'objet dans un cache proxy.
 
-        return reponse
+    return reponse
 
 
 @app.route('/<path:path>')
