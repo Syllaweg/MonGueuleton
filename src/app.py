@@ -1,3 +1,4 @@
+from fastai import *
 import fastai
 from fastai.vision import *
 import torch
@@ -8,7 +9,6 @@ import requests
 
 import yaml
 import json
-
 
 from io import BytesIO  # Permet de lire des données Brutes(nos images)
 # plus généralement de gérer différent type de données I/O -> https://docs.python.org/3/library/io.html
@@ -26,7 +26,7 @@ app = Flask(__name__) # instance de Flask, (si name == main -> app run)
 #                                   Fonctions                                  #
 # ---------------------------------------------------------------------------- #
 
-def charge_model(path='.', model_name="model.pkl"):
+def charge_model(path=".", model_name="model.pkl"):
     """ Charge le model entrainé, model.pkl
     Args:
         path (str): chemin vers le fichier du model
@@ -68,7 +68,7 @@ def charge_img_brute(raw):
     return image 
 
 
-def prediction(image, n = 3):
+def prediction(image, n=3):
     """ Analyse une image avec le modèle entrainé, et en ressort une prédiction de classe
     Args:
         image : image à traiter
@@ -116,12 +116,12 @@ def charge_fichier():
         bytes = flask.request.files["file"].read()
         image = charge_img_brute(bytes)
     
-    ret= prediction(image) # Fait la prediction sur l'img
+    ret = prediction(image) # Fait la prediction sur l'img
 
     return flask.jsonify(ret)
 
 
-@app.route('/api/prediction', methods=['GET'])
+@app.route('/api/classes', methods=['GET'])
 def classes():
     """ Récupère avec GET le nom des classes prédites
     Return:
@@ -163,9 +163,9 @@ def http_header(reponse):
 
 
 @app.route('/<path:path>')
-def static_file(chemin):
-    if '.js' in chemin or '.css' in chemin:
-        return app.send_static_file(chemin)
+def static_file(path):
+    if '.js' in path or '.css' in path:
+        return app.send_static_file(path)
     else:
         return app.send_static_file("index.html")
 
