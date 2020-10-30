@@ -15,6 +15,9 @@ from io import BytesIO  # Permet de lire des données Brutes(nos images)
 import sys  # module system
 
 
+with open("src/config.yaml", 'r') as stream:
+    APP_CONFIG = yaml.full_load(stream)
+
 
 app = Flask(__name__) # instance de Flask, (si name == main -> app run)
 
@@ -23,7 +26,7 @@ app = Flask(__name__) # instance de Flask, (si name == main -> app run)
 #                                   Fonctions                                  #
 # ---------------------------------------------------------------------------- #
 
-def charge_model(path='../models', model_name="model.pkl"):
+def charge_model(path='.', model_name="model.pkl"):
     """ Charge le model entrainé, model.pkl
     Args:
         path (str): chemin vers le fichier du model
@@ -47,8 +50,8 @@ def charge_img_url(url):
     https://www.kite.com/python/answers/how-to-read-an-image-data-from-a-url-in-python
     https://pillow.readthedocs.io/en/3.0.x/releasenotes/2.8.0.html
     """
-    response = requests.get(url)
-    image = open_image(BytesIO(response.content)) 
+    rep = requests.get(url)
+    image = open_image(BytesIO(rep.content)) 
 
     return image 
 
@@ -136,6 +139,9 @@ def test():
     """
     return "jour!"
 
+@app.route('/config')
+def config():
+    return flask.jsonify(APP_CONFIG)
 
 # Gestion des mises en Cache
 #if app.config["DEBUG"]:
