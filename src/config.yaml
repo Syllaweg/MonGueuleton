@@ -1,11 +1,11 @@
-title: app MonGeuleTon
-description: Identifie les pltas de votre repas
+title: MonGeuleTon
+description: Identifie les plats de votre repas
 about: 
 
-  Projet de William et Sylvère
+  Projet de William et Sylvere
 
 code: https://github.com/Syllaweg/MonGueuleton
 
 sampleImages:
-    - name: sushi
+  - name: sushi
     url: https://upload.wikimedia.org/wikipedia/commons/6/60/Sushi_platter.jpg
