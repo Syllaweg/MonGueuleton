@@ -109,9 +109,9 @@ class MainPage extends React.Component {
         if (this.state.rawFile) {
             const data = new FormData();
             data.append('file', this.state.rawFile);
-            resPromise = axios.post('/api/classifieur', data);
+            resPromise = axios.post('/api/classify', data);
         } else {
-            resPromise = axios.get('/api/classifieur', {
+            resPromise = axios.get('/api/classify', {
                 params: {
                     url: this.state.file
                 }
