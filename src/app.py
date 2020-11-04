@@ -87,11 +87,11 @@ def prediction(image, n=3):
     predictions = []
 
     for img_class, retour, proba in zip(model.data.classes, outputs.tolist(), predict_proba):
-        output = round(output, 1 )
+        output = round(retour, 1 )
         proba = round(proba, 2)
-        predictions.append({"Classe": img_class.replace("_"," "), "Sortie": retour, "probalité": proba})
+        predictions.append({"Classe": img_class.replace("_"," "), "Sortie": retour, "probabilité": proba})
 
-    predictions = sorted(predictions, key=lambda x: x["output"], reverse=True)
+    predictions = sorted(predictions, key=lambda x: x["Sortie"], reverse=True)
     predictions = predictions[0 : n] # affichera les n premiers resultats (3 ici)
 
     return {"Classe": str(class_prediction), "Predictions": predictions}
@@ -101,7 +101,7 @@ def prediction(image, n=3):
 #                                     Flask                                    #
 # ---------------------------------------------------------------------------- #
 
-@app.route('/api/classifieur', methods=['POST', 'GET'])
+@app.route('/api/classify', methods=['POST', 'GET'])
 def charge_fichier():
     """ Recupere une image depuis un URL ou un fichier et la passe dans le modele 
     Return:
