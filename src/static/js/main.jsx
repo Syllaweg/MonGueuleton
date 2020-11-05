@@ -109,9 +109,9 @@ class MainPage extends React.Component {
         if (this.state.rawFile) {
             const data = new FormData();
             data.append('file', this.state.rawFile);
-            resPromise = axios.post('/api/classify', data);
+            resPromise = axios.post('/api/classifieur', data);
         } else {
-            resPromise = axios.get('/api/classify', {
+            resPromise = axios.get('/api/classifieur', {
                 params: {
                     url: this.state.file
                 }
@@ -136,7 +136,7 @@ class MainPage extends React.Component {
         if (predictions.length > 0) {
 
             const predictionItems = predictions.map((item) =>
-                <li>{item.class} ({item.prob * 100}%) </li>
+                <li>{item.classe} ({item.proba * 100}%) </li>
             );
 
             return (
@@ -195,7 +195,7 @@ class MainPage extends React.Component {
                     <h3>OR</h3>
                     <FormGroup id={"upload_button"}>
                         <div>
-                            <p>Upload an image</p>
+                            <p>Chargez une  image</p>
                         </div>
                         <Label for="imageUpload">
                             <Input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg" ref="file"
