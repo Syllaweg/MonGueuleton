@@ -278,7 +278,7 @@ function App() {
 }
 
 (async () => {
-    const response = await fetch('/config');
+    const response = await fetch('/config');s
     const body = await response.json();
 
     window.APP_CONFIG = body;
