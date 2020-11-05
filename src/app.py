@@ -68,7 +68,7 @@ def charge_img_brute(raw):
     return image 
 
 
-def prediction(image, n=3):
+def model_predict(image, n=3):
     """ Analyse une image avec le modèle entrainé, et en ressort une prédiction de classe
     Args:
         image : image à traiter
@@ -77,7 +77,7 @@ def prediction(image, n=3):
         class_predicton (str): Classe prédite pour l'img
         predictions (lst): liste des probabilités des prédictions de classes pour une img
     """
-    class_prediction, _, outputs = model.predict(image) # model.predict, renvoie un Tuple de 3 élem: 
+    class_prediction, pred_idx, outputs = model.predict(image) # model.predict, renvoie un Tuple de 3 élem: 
                                                                     # 1 la pred passé par l'activation et la fct de perte
                                                                     # 2 la pred décodé
                                                                     # 3 la pred décodé en ulisant les transform appliqué au DataLoaders
@@ -86,22 +86,23 @@ def prediction(image, n=3):
 
     predictions = []
 
-    for img_class, retour, proba in zip(model.data.classes, outputs.tolist(), predict_proba):
-        output = round(retour, 1 )
+    for img_class, sortie, proba in zip(model.data.classes, outputs.tolist(), predict_proba):
+        output = round(sortie, 1)
         proba = round(proba, 2)
-        predictions.append({"Classe": img_class.replace("_"," "), "Sortie": retour, "probabilité": proba})
+        predictions.append({"classe": img_class.replace("_", " "), 
+                            "sortie": sortie, "proba": proba})
 
-    predictions = sorted(predictions, key=lambda x: x["Sortie"], reverse=True)
+    predictions = sorted(predictions, key=lambda x: x["sortie"], reverse=True)
     predictions = predictions[0 : n] # affichera les n premiers resultats (3 ici)
 
-    return {"Classe": str(class_prediction), "Predictions": predictions}
+    return {"classe": str(class_prediction), "predictions": predictions}
 
 
 # ---------------------------------------------------------------------------- #
 #                                     Flask                                    #
 # ---------------------------------------------------------------------------- #
 
-@app.route('/api/classify', methods=['POST', 'GET'])
+@app.route('/api/classifieur', methods=['POST', 'GET'])
 def charge_fichier():
     """ Recupere une image depuis un URL ou un fichier et la passe dans le modele 
     Return:
@@ -116,7 +117,7 @@ def charge_fichier():
         bytes = flask.request.files["file"].read()
         image = charge_img_brute(bytes)
     
-    ret = prediction(image) # Fait la prediction sur l'img
+    ret = model_predict(image) # Fait la prediction sur l'img
 
     return flask.jsonify(ret)
 
