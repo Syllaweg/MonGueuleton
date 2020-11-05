@@ -164,17 +164,17 @@ class MainPage extends React.Component {
             <div>
                 <h2>{APP_CONFIG.description}</h2>
 
-                <p>Select an image </p>
+                <p>Selectionner une image</p>
 
                 <Form>
                     <FormGroup>
                         <div>
-                            <p>Provide a Url</p>
+                            <p>Un lien URL</p>
                             <div>
 
                                 <UncontrolledDropdown >
                                     <DropdownToggle caret>
-                                        Sample Image Url
+                                        Exemple d'URL d'images
                                     </DropdownToggle>
                                     <DropdownMenu>
                                         {sampleImages.map(si =>
@@ -192,15 +192,15 @@ class MainPage extends React.Component {
                         </div>
                     </FormGroup>
 
-                    <h3>OR</h3>
+                    <h3>Ou bien</h3>
                     <FormGroup id={"upload_button"}>
                         <div>
-                            <p>Chargez une  image</p>
+                            <p>Chargez une image</p>
                         </div>
                         <Label for="imageUpload">
                             <Input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg" ref="file"
                                    onChange={this._onFileUpload}/>
-                            <span className="btn btn-primary">Upload</span>
+                            <span className="btn btn-primary">Chargez</span>
                         </Label>
                     </FormGroup>
 
@@ -208,9 +208,9 @@ class MainPage extends React.Component {
 
                     <FormGroup>
                         <Button color="success" onClick={this._predict}
-                                disabled={this.state.isLoading}> Predict</Button>
+                                disabled={this.state.isLoading}>KesKonMange!</Button>
                         <span className="p-1 "/>
-                        <Button color="danger" onClick={this._clear}> Clear</Button>
+                        <Button color="danger" onClick={this._clear}>Effacer</Button>
                     </FormGroup>
 
 
@@ -242,7 +242,7 @@ class CustomNavBar extends React.Component {
                 <Collapse navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <NavLink href="/about">About</NavLink>
+                            <NavLink href="/about">A propos</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href={link}>GitHub</NavLink>
