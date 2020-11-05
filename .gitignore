@@ -1,8 +1,19 @@
-data/*
-!data/.gitkeep 
-**/.ipynb_checkpoints/
+# Fichiers
+entrainement/data/
+entrainement/.ipynb_checkpoints
 models/
-!models/classes.txt
-!models/final.pth
-!models/model.pkl
-.idea
+__pycache__/
+
+# Environement:
+env_mgt/
+
+# Flask:
+instance/
+.webassets-cache
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
