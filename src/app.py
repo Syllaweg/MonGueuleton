@@ -68,7 +68,7 @@ def charge_img_brute(raw):
     return image 
 
 
-def model_predict(image, n=3):
+def model_run(image, n=3):
     """ Analyse une image avec le modèle entrainé, et en ressort une prédiction de classe
     Args:
         image : image à traiter
@@ -89,8 +89,7 @@ def model_predict(image, n=3):
     for img_class, sortie, proba in zip(model.data.classes, outputs.tolist(), predict_proba):
         output = round(sortie, 1)
         proba = round(proba, 2)
-        predictions.append({"classe": img_class.replace("_", " "), 
-                            "sortie": sortie, "proba": proba})
+        predictions.append({"classe": img_class.replace("_", " "), "sortie": sortie, "proba": proba})
 
     predictions = sorted(predictions, key=lambda x: x["sortie"], reverse=True)
     predictions = predictions[0 : n] # affichera les n premiers resultats (3 ici)
@@ -117,7 +116,7 @@ def charge_fichier():
         bytes = flask.request.files["file"].read()
         image = charge_img_brute(bytes)
     
-    ret = model_predict(image) # Fait la prediction sur l'img
+    ret = model_run(image) # Fait la prediction sur l'img
 
     return flask.jsonify(ret)
 
@@ -140,9 +139,11 @@ def test():
     """
     return "jour!"
 
+
 @app.route('/config')
 def config():
     return flask.jsonify(APP_CONFIG)
+
 
 # Gestion des mises en Cache
 #if app.config["DEBUG"]:
@@ -170,6 +171,7 @@ def static_file(path):
     else:
         return app.send_static_file("index.html")
 
+
 @app.route('/')
 def root():
     return app.send_static_file('index.html')
@@ -190,3 +192,5 @@ if __name__ == "__main__":
         app.jinja_env.auto_reload = True
         app.config["TEMPLATES_AUTO_RELOAD"] = True
         app.run(debug=False, host="0.0.0.0", port=port)
+
+
