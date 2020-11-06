@@ -164,17 +164,17 @@ class MainPage extends React.Component {
             <div>
                 <h2>{APP_CONFIG.description}</h2>
 
-                <p>Selectionner une image</p>
+                <p>Selectionnez une image </p>
 
                 <Form>
                     <FormGroup>
                         <div>
-                            <p>Un lien URL</p>
+                            <p>Depuis un lien Url</p>
                             <div>
 
                                 <UncontrolledDropdown >
                                     <DropdownToggle caret>
-                                        Exemple d'URL d'images
+                                        Exemples
                                     </DropdownToggle>
                                     <DropdownMenu>
                                         {sampleImages.map(si =>
@@ -192,15 +192,15 @@ class MainPage extends React.Component {
                         </div>
                     </FormGroup>
 
-                    <h3>Ou bien</h3>
+                    <h3>Chargez une image</h3>
                     <FormGroup id={"upload_button"}>
                         <div>
-                            <p>Chargez une image</p>
+                            <p>Selectionnez et cliquez</p>
                         </div>
                         <Label for="imageUpload">
                             <Input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg" ref="file"
                                    onChange={this._onFileUpload}/>
-                            <span className="btn btn-primary">Chargez</span>
+                            <span className="btn btn-primary">Charger</span>
                         </Label>
                     </FormGroup>
 
@@ -208,9 +208,9 @@ class MainPage extends React.Component {
 
                     <FormGroup>
                         <Button color="success" onClick={this._predict}
-                                disabled={this.state.isLoading}>KesKonMange!</Button>
+                                disabled={this.state.isLoading}> ?KesKonMange?</Button>
                         <span className="p-1 "/>
-                        <Button color="danger" onClick={this._clear}>Effacer</Button>
+                        <Button color="danger" onClick={this._clear}> Effacer</Button>
                     </FormGroup>
 
 
@@ -278,7 +278,7 @@ function App() {
 }
 
 (async () => {
-    const response = await fetch('/config');s
+    const response = await fetch('/config');
     const body = await response.json();
 
     window.APP_CONFIG = body;
