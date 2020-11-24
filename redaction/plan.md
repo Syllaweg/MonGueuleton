@@ -11,9 +11,11 @@
 - 1.5 Objectifs et domaine d'application
 
 ## Vision par ordinateur et classification d'images
-- 2.1 Ìntrodution au projet *Pytorch, FastAI, Resnet*
+- 2.1 Introduction au projet 
+    - 2.1.1 Le jeux de données
+    - 2.1.2 les technologies: *Pytorch, FastAI, Resnet*
 - 2.2 Analyse des données
-- 2.3 Architecture du modèle *Resnet 34*
+- 2.3 Architecture du modèle *Resnet*
 - 2.4 Évaluation de différents modèles
   - 2.4.1 Augmentation des données
   - 2.4.2 Pré-traitement
@@ -25,3 +27,8 @@
 
 ## Conclusion 
 - 
+
+<br>
+***  
+# To ADD
+
