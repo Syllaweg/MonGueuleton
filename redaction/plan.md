@@ -29,6 +29,14 @@
 - 
 
 <br>
-***  
+
+***
+
 # To ADD
 
+- Vers l'application 
+- Déploiement
+  - Docker  
+  - Déploiement côté serveur 
+- Base de données
+- Monitoring 
