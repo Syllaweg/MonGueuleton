@@ -11,7 +11,7 @@
 - 1.5 Objectifs et domaine d'application
 
 ## Vision par ordinateur et classification d'images
-- 2.1 Introduction au projet 
+- 2.1 Introduction de la partie IA
     - 2.1.1 Le jeux de données
     - 2.1.2 les technologies: *Pytorch, FastAI, Resnet*
 - 2.2 Analyse des données
@@ -35,8 +35,10 @@
 # To ADD
 
 - Vers l'application 
-- Déploiement
-  - Docker  
-  - Déploiement côté serveur 
-- Base de données
+  - intro de la partie applicative du projet
+  - Développement de l'application web 
+  - Déploiement
+    - Conteneurisation
+    - Dans les nuages  
+    - Déploiement côté serveur 
 - Monitoring 
