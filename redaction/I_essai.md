@@ -43,7 +43,11 @@
 ## ***Introduction***
 
 ### 1.1 l'Intelligence Artificiel aujourd'hui  
-l'Intelligence Artificiel vie aujourd'hui un renouveau, avec un regain d'interet extraordinaire autour des différentes techniques d'IA qui arrivent dans notre quotidien 
+
+L’intelligence artificielle vit aujourd’hui un renouveau incroyable, amenée depuis la fin des années 80 par des géants comme *IBM* et son système *Deep Blue* [1] qui a rendu visible pour le grand public les progrès de l’apprentissage automatique par les machines. Et qui nous a menée jusqu’à aujourd’hui 
+à un regain d'intérêt autour des différentes techniques d’IA qui arrivent petit à petit dans notre quotidien, amenée par de grands acteurs comme Apple avec son Face ID [2], mais aussi *IBM, Google,* …, également par de petites structures dynamiques et spécialisées comme des startup.
+La démocratisation croissante des moteurs neuronaux depuis les années 2010 avec des *Graphical Processing Unit* toujours plus puissants, des bibliothèques toujours plus nombreuses qui permettent d’exploiter des données également disponible en toujours plus grand nombre, augmente de manière de manière exponentiel les métiers et les activités potentiellement touchés (Sécurité, Education, Finance, Domotique, Systèmes d’Information...).
+Dans d’autres domaine encore, la reconnaissance d’image qui est certainement aujourd’hui, le domaine d’application des réseaux de neuronaux le plus aboutie, est utilisée pour apprendre à des machines à identifier leur environnement afin de si déplacer. 
 
 
 
