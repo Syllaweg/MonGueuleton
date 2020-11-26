@@ -2,8 +2,12 @@
 ***
 <br>
 
-## ***Résumé***
+## ***Résumé***  
+La Vision par Ordinateur est devenu, depuis 60 ans, un domaine de recherche très prisé. Les traitements optimisent les interfaces des différents produits commerciaux développés par l’industrie, en les rendant plus attractifs, plus utiles, plus intéressants et surtout omniprésents.  
+Les applications centrées sur le consommateur exigent de plus en plus que l’analyse de ces images soit robuste à toute la gamme de bruit réel et à d’autres conditions de distorsion. Cependant, reconnaître de manière fiable des objets ou des actions dans des environnements réalistes reste toujours un défi.  
 
+Notre tâche consistera à concevoir un système “Intelligent” permettant d’adapter un réseau de neurones à la reconnaissance d’image de plats et de nourriture, ce système sera ensuite déployé via une pipeline dans une application qui permettra à des utilisateurs d’interagir avec lui.  
+Dans la première étape nous procédons par itération afin de tester et évaluer différentes architectures et hyper-paramètres lors de l'entraînement de notre modèle, pour sélectionner le plus cohérent pour notre tâche. Pour ce faire nous utiliserons des outils comme Pytorch, Fastai, Numpy et des architectures Resnet.
 
 
 
@@ -58,7 +62,7 @@ Les données collectées par les acteurs privés ou étatiques via les télépho
 Force est de constater que désormais les techniques traditionnelles d’analyse ne suffisent plus pour traiter ce flot immense de données, qui reste donc en partie inexploitées.  
 Et c’est dans ce cadre que l’IA telle que nous l’entendons aujourd’hui vient répondre pour partie à ces problématiques de traitement des données, grâce à des algorithmes que les chercheurs tentent de développer, d’améliorer afin d’augmenter notre potentiel d’exploitation de ces données.
 
-Pour aller plus loin on peut imaginer qu’avec le développement de l’*Internet des Objets*, les interactions *machine-machine* et *Homme-machine* soit toujours plus nombreuses et la nécessité de traiter correctement ces données de plus en plus diverses soit donc toujours plus grandes. 
+Pour aller plus loin on peut imaginer qu’avec le développement de l’*Internet des Objets*, les interactions *machine-machine* et *Homme-machine* soit toujours plus nombreuses et la nécessité de traiter correctement ces données de plus en plus diverses soit donc toujours plus grandes.  
 On peut prendre en exemple les récentes avancées dans la reconnaissance vocale (aujourd'hui 150 mots/minute contre 20-50 mots/minute au clavier) qui ouvre de  nombreuses nouvelles voies, avec un environnement de machine connectés entre elles qui nécessite pour un usage harmonieux, un traitement des données, une *Intelligence Artificiel*, capable de répondre à ces nouveaux usages spécifiques.
 
 
