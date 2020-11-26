@@ -5,7 +5,8 @@
 - Avant propos: parcours Simplon/Orange
 
 ## Introduction
-- 1.1 L'intellignece Artificiel 
+- 1.1 L'intelligence Artificiel aujourd'hui
+  - 1.1.1 L’interaction Homme-Machine et ses données
 - 1.2 Contexte du projet 
 - 1.4 Problématique
 - 1.5 Objectifs et domaine d'application
