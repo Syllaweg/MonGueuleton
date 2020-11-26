@@ -16,7 +16,8 @@
 - Avant propos: parcours Simplon/Orange
 
 #### **Introduction**
-- 1.1 L'intelligence Artificiel aujourd'hui 
+- 1.1 L'intelligence Artificiel aujourd'hui
+  - 1.1.1 L’interaction Homme-Machine et ses données
 - 1.2 Contexte du projet 
 - 1.4 Problématique
 - 1.5 Objectifs et domaine d'application
@@ -44,11 +45,18 @@
 
 ### 1.1 l'Intelligence Artificiel aujourd'hui  
 
-L’intelligence artificielle vit aujourd’hui un renouveau incroyable, portée depuis la fin des années 80 par des géants comme IBM et son système Deep Blue [1] qui a rendu visible pour le grand public les progrès de l’apprentissage automatique par les machines. Ce qui nous a menée jusqu’à aujourd’hui à un regain d'intérêt autour des différentes techniques d’IA qui arrivent petit à petit dans notre quotidien, amenée par de grands acteurs comme Apple avec son Face ID [2], mais aussi IBM, Google, …, également par de petites structures dynamiques et spécialisées comme des startup.  
+L’intelligence artificielle vit aujourd’hui un renouveau incroyable, portée depuis la fin des années 80 par des géants comme *IBM* et son système *Deep Blue* [1] qui a rendu visible pour le grand public les progrès de l’apprentissage automatique par les machines. Ce qui nous a menée jusqu’à aujourd’hui à un regain d'intérêt autour des différentes techniques d’IA qui arrivent petit à petit dans notre quotidien, amenée par de grands acteurs comme *Apple* avec son *Face ID* [2], mais aussi *IBM, Google*, …, également par de petites structures dynamiques et spécialisées comme des startup.  
 
-La démocratisation croissante des moteurs neuronaux depuis les années 2010 avec des Graphical Processing Unit toujours plus puissants, des bibliothèques toujours plus nombreuses qui permettent d’exploiter des données également disponible en toujours plus grand nombre, augmente de manière de manière exponentiel les métiers et les activités potentiellement touchés (Sécurité, Education, Finance, Domotique, Systèmes d’Information...).  
+La démocratisation croissante des moteurs neuronaux depuis les années 2010 avec des *Graphical Processing Unit* toujours plus puissants, des bibliothèques toujours plus nombreuses qui permettent d’exploiter des données également disponible en toujours plus grand nombre, augmente de manière de manière exponentiel les métiers et les activités potentiellement touchés (Sécurité, Education, Finance, Domotique, Systèmes d’Information...).  
 Dans d’autres domaines encore, la vision par ordinateur qui est certainement aujourd'hui le domaine d’application des réseaux de neurones le plus aboutie, est utilisée pour apprendre à des machines à identifier leur environnement afin de s'y déplacer. Il faut aussi compter avec des applications sociétales spectaculaires comme les voitures autonomes et l’imagerie médicale. Avec par exemple la détection de cellules cancéreuses, il sera certainement possible d’automatiser la détection des zones infectés et de prédire les traitements qui auront le plus de chances d’aboutir. 
 
+#### 1.1.1 L’interaction Homme-Machine et ses données
+
+Les moyens de collectes d’information c’étant depuis ces 20 dernières années considérablement améliorés.
+Les données collectées par les acteurs privés ou étatiques via les téléphone mobiles qui nous suivent désormais partout, internet ou le nombre de services proposé est toujours plus grand, dans des procédés industriels capable aujourd’hui de connecté et de récupérer des données depuis toujours plus de machines. 
+
+Force est de constater que désormais les techniques traditionnelles d’analyse ne suffisent plus pour traiter ce flot immense de données, qui reste donc en partie inexploitées.  
+Et c’est dans ce cadre que l’IA telle que nous l’entendons aujourd’hui vient répondre pour partie à ces problématiques de traitement des données, grâce à des algorithmes que les chercheurs tentent de développer, d’améliorer afin d’augmenter notre potentiel d’exploitation de ces données.
 
 
 
