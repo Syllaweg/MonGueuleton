@@ -7,7 +7,11 @@ La Vision par Ordinateur est devenu, depuis 60 ans, un domaine de recherche tre�
 Les applications centrées sur le consommateur exigent de plus en plus que l’analyse de ces images soit robuste à toute la gamme de bruit réel et à d’autres conditions de distorsion. Cependant, reconnaître de manière fiable des objets ou des actions dans des environnements réalistes reste toujours un défi.  
 
 Notre tâche consistera à concevoir un système “Intelligent” permettant d’adapter un réseau de neurones à la reconnaissance d’image de plats et de nourriture, ce système sera ensuite déployé via une pipeline dans une application qui permettra à des utilisateurs d’interagir avec lui.  
-Dans la première étape nous procédons par itération afin de tester et évaluer différentes architectures et hyper-paramètres lors de l'entraînement de notre modèle, pour sélectionner le plus cohérent pour notre tâche. Pour ce faire nous utiliserons des outils comme Pytorch, Fastai, Numpy et des architectures Resnet.
+
+Dans une première étape nous explorerons notre jeux de données, cet exercice primordiale nous servira à définir l’approche et les outils que nous utiliserons pour répondre à nos besoins.   
+Puis nous procédons par itération afin de tester et évaluer différentes architectures et hyper-paramètres lors de l'entraînement de notre modèle, pour sélectionner le plus cohérent pour notre tâche. Pour ce faire nous utiliserons des outils comme *Pytorch, Fastai, Numpy* et des architectures *Resnet*.   
+
+Dans un deuxième temps nous développerons un applicatif afin de faire fonctionner notre modèle dessus. Pour cela nous nous servirons des bibliothèques et des modules *Python* de développement web, tels que *Flask, Requests* et de certains outils de *Fastai* pour faire fonctionner notre inférence.
 
 
 
