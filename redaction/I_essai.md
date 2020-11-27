@@ -11,7 +11,10 @@ Notre tâche consistera à concevoir un système “Intelligent” permettant d�
 Dans une première étape nous explorerons notre jeux de données, cet exercice primordiale nous servira à définir l’approche et les outils que nous utiliserons pour répondre à nos besoins.   
 Puis nous procédons par itération afin de tester et évaluer différentes architectures et hyper-paramètres lors de l'entraînement de notre modèle, pour sélectionner le plus cohérent pour notre tâche. Pour ce faire nous utiliserons des outils comme *Pytorch, Fastai, Numpy* et des architectures *Resnet*.   
 
-Dans un deuxième temps nous développerons un applicatif afin de faire fonctionner notre modèle dessus. Pour cela nous nous servirons des bibliothèques et des modules *Python* de développement web, tels que *Flask, Requests* et de certains outils de *Fastai* pour faire fonctionner notre inférence.
+Dans un deuxième temps nous développerons un applicatif afin de faire fonctionner notre modèle dessus. Pour cela nous nous servirons des bibliothèques et des modules *Python* de développement web, tels que *Flask, Requests* et de certains outils de *Fastai* pour faire fonctionner notre inférence. Pour la partie Front de cette application nous utiliserons des outils classiques comme HTML et CSS, mais aussi Javascript et JQuery.  
+
+Il s’agira ensuite construire un système de base donnée, afin de d’offrir entre autres à nos utilisateurs la possibilité de créer des comptes et de se connecter à l’application avec un *identifiant* et un *mot de passe*, cela induira de créer en parallèle un ou des compte *administrateur* pour les tenanciers du site. Pour ce système de gestion de base de donnée nous utiliserons *SqlAlchemy* un *ORM* qui nous permettra avec d'interagir aisément avec notre base *relationnel Sqlite* depuis notre script *Python*.
+
 
 
 
