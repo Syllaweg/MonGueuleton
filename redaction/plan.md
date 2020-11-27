@@ -9,6 +9,7 @@
   - 1.1.1 L’interaction Homme-Machine et ses données
 - 1.2 Contexte du projet 
 - 1.4 Problématique
+  - 1.4.1 Besoins client
 - 1.5 Objectifs et domaine d'application
 
 ## Vision par ordinateur et classification d'images
@@ -27,7 +28,9 @@
 - 2.6 résultats
 
 ## Conclusion 
-- 
+
+
+## Bibliographie
 
 <br>
 
@@ -37,9 +40,11 @@
 
 - Vers l'application 
   - intro de la partie applicative du projet
-  - Développement de l'application web 
-  - Déploiement
+  - Développement de l'application web
+    - Back 
+    - Front
+    - Base donnée  
+  - Un déploiement côté serveur
     - Conteneurisation
     - Dans les nuages  
-    - Déploiement côté serveur 
 - Monitoring 
